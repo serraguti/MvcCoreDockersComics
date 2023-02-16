@@ -1,0 +1,27 @@
+﻿@model List<Comic>
+
+<h1 style="color:blue">
+    Comics Dockers MySql
+</h1>
+<p>
+    <a asp-controller="Comics"
+        asp-action="Create">
+        Create New
+    </a>
+</p>
+
+@foreach (Comic comic in Model){
+    <div class="card" style="width: 18rem;padding:20px;float:left">
+      <img class="card-img-top" src="@comic.Imagen" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">@comic.Nombre</h5>
+        <p class="card-text">
+            Id Comic: @comic.IdComic    
+        </p>
+        <a asp-controller="Comics"
+            asp-action="Update"
+            asp-route-idcomic="@comic.IdComic"
+            class="btn btn-primary">Update Comic</a>
+      </div>
+    </div>
+}
